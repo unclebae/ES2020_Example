@@ -6,7 +6,7 @@ ES2020 에서도 몇가지 중요한 기능이 추가 되었습니다.
 
 이번에는 ES2020에서 새로 추가된 기능들을 살펴보도록 하겠습니다 .
 
-## 동적 잎포트
+## 동적 임포트
 
 동적 임포트는 기존의 정적 임포트 방식에서 좀더 함수 스타일의 프로그래밍을 수행할 수 있도록 도와줍니다.
 
@@ -181,13 +181,13 @@ regular expression 는 효과적인 개발을 위해서 꼭 필요한 도구가 
     console.log("------ 정규식 표현으로 전체가 대문자인 문자만 추출합니다.")
     const string = 'Magic hex numbers: DEADBEEF CAFE';
 
-    //  \b 는 단어의 경계(시작/끝)를 확인합니다. 
-    //  \p POXIX 문자 클래스를 이용한다. 이는 US-ASCII 에서만 사용가능  
-    // {ASCII_Hex_Digit} 는 아스키, 16진수, 숫자등을 검출한다. [0-9a-fA-F] 내용을 찾을 것입니다. 
-    // + 는 1번이상 반복됨을 나타냅니다. 
-    //  \b 다음 공백을 찾는다. 
-    //  g 는 글로벌의 의미로 대상 문자 모두에 대해 적용합니다. 
-    //  u 는 유니코드를 지원합니다. 
+    //  \b 는 단어의 경계(시작/끝)를 확인합니다.
+    //  \p POXIX 문자 클래스를 이용한다. 이는 US-ASCII 에서만 사용가능
+    // {ASCII_Hex_Digit} 는 아스키, 16진수, 숫자등을 검출한다. [0-9a-fA-F] 내용을 찾을 것입니다.
+    // + 는 1번이상 반복됨을 나타냅니다.
+    //  \b 다음 공백을 찾는다.
+    //  g 는 글로벌의 의미로 대상 문자 모두에 대해 적용합니다.
+    //  u 는 유니코드를 지원합니다.
     const regex = /\b\p{ASCII_Hex_Digit}+\b/gu;
     for (const match of string.match(regex)) {
         console.log(match);
@@ -214,21 +214,21 @@ regular expression 는 효과적인 개발을 위해서 꼭 필요한 도구가 
     console.log("------ 매치되는 데이터, 인덱스, 입력된 문자도 노출한다. 단 matchAll 을 이용한다. 그리고 캡쳐를 이용한다.")
 
     // 단어를 구분하고 \b 이용
-    // (?<owner>...) ... 에 매치되는 결과를 owner 이라는 이름으로 캡쳐한다. 
+    // (?<owner>...) ... 에 매치되는 결과를 owner 이라는 이름으로 캡쳐한다.
     const regex4 = /\b(?<owner>[a-z0-9]+)\/(?<repo>[a-z0-9\.]+)\b/g;
     for (const match of string.matchAll(regex4)) {
         console.log(`${match[0]} at ${match.index} with '${match.input}'`);
-        console.log(`→ owner: ${match.groups.owner}`); //  캡쳐된 단어를 이용한다. 
-        console.log(`→ repo: ${match.groups.repo}`); //  캡쳐된 단어를 이용한다. 
+        console.log(`→ owner: ${match.groups.owner}`); //  캡쳐된 단어를 이용한다.
+        console.log(`→ repo: ${match.groups.repo}`); //  캡쳐된 단어를 이용한다.
     }
 </script>
 ```
 
 from : https://v8.dev/features/string-matchall
 
-에서 소스를 가져 왔으며, 해당 내역마다 주석을 첨부 하였습니다. 
+에서 소스를 가져 왔으며, 해당 내역마다 주석을 첨부 하였습니다.
 
-결과를 한번 보겠습니다. 
+결과를 한번 보겠습니다.
 
 ![regex](./regex.png)
 

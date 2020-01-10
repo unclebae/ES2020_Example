@@ -107,7 +107,7 @@ BigInt 는 arbitrary-precision 정수형을 제공합니다.
 </script>
 ```
 
-![bigint](./bitint/bigint.png)
+![bigint](./bigint/bigint.png)
 
 BigInt 는 일반적인 Number 타입이 아니기 때문에 함게 연산할 수 없습니다.
 

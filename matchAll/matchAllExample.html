@@ -1,0 +1,45 @@
+<script>
+    console.log("------ 정규식 표현으로 전체가 대문자인 문자만 추출합니다.")
+    const string = 'Magic hex numbers: DEADBEEF CAFE';
+
+    //  \b 는 단어의 경계(시작/끝)를 확인합니다. 
+    //  \p POXIX 문자 클래스를 이용한다. 이는 US-ASCII 에서만 사용가능  
+    // {ASCII_Hex_Digit} 는 아스키, 16진수, 숫자등을 검출한다. [0-9a-fA-F] 내용을 찾을 것입니다. 
+    // + 는 1번이상 반복됨을 나타냅니다. 
+    //  \b 다음 공백을 찾는다. 
+    //  g 는 글로벌의 의미로 대상 문자 모두에 대해 적용합니다. 
+    //  u 는 유니코드를 지원합니다. 
+    const regex = /\b\p{ASCII_Hex_Digit}+\b/gu;
+    for (const match of string.match(regex)) {
+        console.log(match);
+    }
+</script>
+<script>
+    console.log("------ 매치되는 데이터, 인덱스, 입력된 문자도 노출한다. ")
+
+    const regex2 = /\b\p{ASCII_Hex_Digit}+\b/gu;
+    let match;
+    while (match = regex2.exec(string)) {
+        console.log(match);
+    }
+</script>
+<script>
+    console.log("------ 매치되는 데이터, 인덱스, 입력된 문자도 노출한다. 단 matchAll 을 이용한다. ")
+
+    const regex3 = /\b\p{ASCII_Hex_Digit}+\b/gu;
+    for (const match of string.matchAll(regex3)) {
+        console.log(match);
+    }
+</script>
+<script>
+    console.log("------ 매치되는 데이터, 인덱스, 입력된 문자도 노출한다. 단 matchAll 을 이용한다. 그리고 캡쳐를 이용한다.")
+
+    // 단어를 구분하고 \b 이용
+    // (?<owner>...) ... 에 매치되는 결과를 owner 이라는 이름으로 캡쳐한다. 
+    const regex4 = /\b(?<owner>[a-z0-9]+)\/(?<repo>[a-z0-9\.]+)\b/g;
+    for (const match of string.matchAll(regex4)) {
+        console.log(`${match[0]} at ${match.index} with '${match.input}'`);
+        console.log(`→ owner: ${match.groups.owner}`); //  캡쳐된 단어를 이용한다. 
+        console.log(`→ repo: ${match.groups.repo}`); //  캡쳐된 단어를 이용한다. 
+    }
+</script>

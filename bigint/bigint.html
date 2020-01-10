@@ -1,0 +1,38 @@
+<script>
+    console.log("Normal Number ----------------")
+    var max = Number.MAX_VALUE;
+    console.log("Max: ", max)
+    console.log("Max + 1: ", max + 1)
+    console.log("Max + 2: ", max + 2)
+
+    var max_safe = Number.MAX_SAFE_INTEGER;
+    console.log("Max Safe: ", max_safe)
+    console.log("Max Safe + 1: ", max_safe + 1)
+    console.log("Max Safe + 2: ", max_safe + 2)
+</script>
+
+<script>
+    console.log("BigInt ----------------")
+    var bigInt = BigInt(Number.MAX_SAFE_INTEGER);
+    console.log("bigInt: ", bigInt)
+    console.log("bigInt + 1n: ", bigInt + 1n)
+    console.log("bigInt + 2n: ", bigInt + 2n)
+    console.log("bigInt + 2: ", bigInt + 2)
+</script>
+
+<script>
+    console.log("typeof ----------------")
+    console.log("typeof(max_safe) ", typeof (max_safe))
+    console.log("typeof(bigInt) ", typeof (bigInt))
+
+    console.log("operation ----------------")
+    console.log("Op 01: (BitInt(100) == 100n): ", (BigInt(100) == 100n))
+    console.log("Op 02: (100 == 100n): ", (100 == 100n))
+    console.log("Op 03: (0n == true): ", (0n == true))
+    console.log("Op 04: (10n + 5n + (2n * 5n)): ", (10n + 5n + (2n * 5n)))
+    console.log("Op 05: BigInt(5.1): ", BigInt(5.1))
+</script>
+
+<script>
+    console.log("Op 06: BigInt(Number.MAX_SAFE_INTEGER) + 1.5: ", BigInt(Number.MAX_SAFE_INTEGER) + 1.5)
+</script>

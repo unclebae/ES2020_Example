@@ -1,0 +1,31 @@
+<script>
+  const greeting_module = "./greeting.js";
+
+  import(greeting_module)
+    .then(module => {
+      module.default();
+      module.greeting("kido");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+  (async function () {
+    const greeting_module2 = "./greeting.js";
+    const module = await import(greeting_module2);
+    module.default();
+    module.greeting("kido");
+  })();
+</script>
+
+<script>
+  async function loadModules(firstValue, fileName) {
+    const module = await import(`./${firstValue}_${fileName}.js`);
+    module.loading();
+  }
+
+  const firstValue = 'prefix';
+  const fileName = 'filename';
+
+  loadModules(firstValue, fileName);
+</script>

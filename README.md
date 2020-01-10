@@ -107,7 +107,7 @@ BigInt 는 arbitrary-precision 정수형을 제공합니다.
 </script>
 ```
 
-![bigint](./bigint.png)
+![bigint](./bitint/bigint.png)
 
 BigInt 는 일반적인 Number 타입이 아니기 때문에 함게 연산할 수 없습니다.
 
@@ -134,7 +134,7 @@ Promise.all 은 여러개의 promise 가 수행되며, response 혹은 reject �
 </script>
 ```
 
-![promise](./promise.png)
+![promise](./promise_all/promise.png)
 
 ## globalThis
 
@@ -230,7 +230,7 @@ from : https://v8.dev/features/string-matchall
 
 결과를 한번 보겠습니다.
 
-![regex](./regex.png)
+![regex](./matchAll/regex.png)
 
 ## 결론
 
